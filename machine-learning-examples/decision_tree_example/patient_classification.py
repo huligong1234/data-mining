@@ -53,7 +53,6 @@ target_names = ["cold", "irritability", "concussion"]
 #训练分类器
 def train_clf(train_data, train_tags):
 	from sklearn.tree import DecisionTreeClassifier	
-	#多项式模型
 	clf = DecisionTreeClassifier()
 	clf.fit(train_data, np.asarray(train_tags))
 	return clf

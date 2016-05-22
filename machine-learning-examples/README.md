@@ -1,4 +1,4 @@
-#  Simple Examples For Machine Learning (scikit-learn)
+#  Examples For Machine Learning (scikit-learn)
 
 ## 1.病人分类
 * 朴素贝叶斯
