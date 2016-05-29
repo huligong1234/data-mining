@@ -108,7 +108,9 @@ def text_clf():
     pred = clf.predict(test_data) #预测
 
     eval_state_model(test_tags,pred) #评价预测效果
-
+    
+    print('test data count:%d'%(test_data.shape[0])) #测试样本数量
+    print('pred success count:%d'%(sum(test_tags==pred))) #预测成功数量
 
 def main():
     text_clf()
