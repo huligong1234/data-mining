@@ -29,7 +29,7 @@ __author__ = 'huligong'
 f(x)是关于房屋面积的价格值,即我们要预测的值,a是一个常数,b是回归系数
 
 
-本例参考：http://dataunion.org/13355.html 在Python中使用线性回归预测数据
+本例参考：http://python.jobbole.com/81215/ 在Python中使用线性回归预测数据
 
 '''
 
