@@ -17,16 +17,5 @@
 *  线性回归
 
 ## 5.垃圾邮件识别
-
-
-## 6.风控
-*  反欺诈
-*  信贷风控
-
-## 7.网络关联分析
-
-## 8.个性化推荐
-* 基于人口的统计学推荐(Demographic-based Recommendation)
-* 基于协同过滤的推荐(Collaborative Filtering-based Recommendation)
-* 基于内容的推荐(Content-based Recommendation)
+*  朴素贝叶斯
 

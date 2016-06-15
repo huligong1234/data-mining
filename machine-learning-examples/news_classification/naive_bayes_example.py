@@ -72,6 +72,10 @@ def vectorize_train(train_words):
     train_data = hashing_vectorizer.fit_transform(train_words)
     return train_data
 
+def vectorize_test(train_words):
+    test_data = hashing_vectorizer.transform(test_words)
+    return test_data   
+
 #训练分类器
 def train_clf(train_data, train_tags):
     from sklearn.naive_bayes import MultinomialNB	
@@ -103,7 +107,7 @@ def text_clf():
     clf = train_clf(train_data, train_tags)
 
     test_words, test_tags = input_data(train_file)
-    test_data = vectorize_train(test_words)
+    test_data = vectorize_test(test_words)
 
     pred = clf.predict(test_data) #预测
 
