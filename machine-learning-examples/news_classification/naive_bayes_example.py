@@ -72,7 +72,7 @@ def vectorize_train(train_words):
     train_data = hashing_vectorizer.fit_transform(train_words)
     return train_data
 
-def vectorize_test(train_words):
+def vectorize_test(test_words):
     test_data = hashing_vectorizer.transform(test_words)
     return test_data   
 
