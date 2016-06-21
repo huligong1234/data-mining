@@ -36,7 +36,6 @@ f(x)是关于房屋面积的价格值,即我们要预测的值,a是一个常数,
 import sys
 import os
 
-import numpy as np
 from sklearn import datasets, linear_model
 
 import pandas as pd
@@ -52,7 +51,7 @@ def input_data():
 	sample_data_dir =  os.path.join(os.path.dirname(os.getcwd()),'sample_data')	
 	data_file = os.path.join(sample_data_dir,'house_price','simple_house_price.csv')	
 	data = pd.read_csv(data_file)
-	print data
+	#print(data)
 	X_parameter = []
 	Y_parameter = []
 	for single_square_feet ,single_price_value in zip(data['square_feet'],data['price']):
