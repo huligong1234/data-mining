@@ -45,15 +45,11 @@ from sklearn.metrics import f1_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 
-from sklearn import cross_validation
+from sklearn import model_selection
 from sklearn.datasets import load_iris
 
 import pandas as pd
 import numpy as np
-
-#Python27解决中文乱码问题
-reload(sys)
-sys.setdefaultencoding('utf8')
 
 #iris = load_iris() #加载鸢尾花数据集
 #print(iris.data.shape) #(150, 4) # 150个样本，每个样本4个特征
@@ -64,11 +60,11 @@ def input_data():
 	#本地样本数据目录
 	sample_data_dir =  os.path.join(os.path.dirname(os.getcwd()),'sample_data')	
 	data_file = os.path.join(sample_data_dir,'iris','iris.csv')
-	iris = pd.read_csv(data_file,header=False)	
+	iris = pd.read_csv(data_file)
 	#print(iris)
 	iris_target = iris["Species"] #目标变量
-	iris_data = iris.ix[:,1:4] #自变量
-	train_data,test_data,train_target,test_target = cross_validation.train_test_split(iris_data,
+	iris_data = iris.iloc[:,1:4] #自变量
+	train_data,test_data,train_target,test_target = model_selection.train_test_split(iris_data,
 		iris_target,test_size=0.24,random_state=0)
 	return train_data,test_data,train_target,test_target
 

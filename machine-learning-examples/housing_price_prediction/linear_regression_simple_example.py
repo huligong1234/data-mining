@@ -41,11 +41,6 @@ from sklearn import datasets, linear_model
 import pandas as pd
 import numpy as np
 
-#Python27解决中文乱码问题
-reload(sys)
-sys.setdefaultencoding('utf8')
-
-
 def input_data():
 	#本地样本数据目录
 	sample_data_dir =  os.path.join(os.path.dirname(os.getcwd()),'sample_data')	
@@ -73,26 +68,26 @@ def show_linear_line(regr,X_parameters,Y_parameters):
 	from pylab import mpl
 
 	fig, ax = plt.subplots()
-	mpl.rcParams['font.sans-serif'] = ['FangSong'] #指定默认字体,解决中文乱码问题
+	#mpl.rcParams['font.sans-serif'] = ['FangSong'] #指定默认字体,解决中文乱码问题
 	mpl.rcParams['axes.unicode_minus'] = False # 解决保存图像是负号'-'显示为方块的问题
 	ax.scatter(X_parameters,Y_parameters,color='blue')
 	ax.plot(X_parameters,regr.predict(X_parameters),color='red',linewidth=4)
 	plt.xticks(())
 	plt.yticks(())
-	ax.set_xlabel('房屋面积')
-	ax.set_ylabel('房价')
+	ax.set_xlabel('Housing Area') #房屋面积
+	ax.set_ylabel('Price') #房价
 	plt.show()
 
 #预测
 def execute_predict():
 	X,Y = input_data()
-	predict_value = 700 # 房屋面积,就是f(x)=a+bx线性函数中x的值
+	predict_value = [[700]] # 房屋面积,就是f(x)=a+bx线性函数中x的值
 	regr = train_model(X,Y)
 	pred = regr.predict(predict_value)
 
-	print "Intercept value " , regr.intercept_ #（截距值）就是f(x)=a+bx线性函数中a的值
-	print "coefficient" , regr.coef_ #（系数）就是f(x)=a+bx线性函数中b的值
-	print "Predicted value: ",pred #预测的房子价格
+	print("Intercept value " , regr.intercept_) #（截距值）就是f(x)=a+bx线性函数中a的值
+	print("coefficient" , regr.coef_) #（系数）就是f(x)=a+bx线性函数中b的值
+	print("Predicted value: ",pred) #预测的房子价格
 	
 	show_linear_line(regr,X,Y)
 

@@ -45,16 +45,12 @@ from sklearn.metrics import recall_score
 
 from sklearn.feature_extraction.text import HashingVectorizer
 
-#Python27解决中文乱码问题
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 #样本数据目录
 sample_data_dir =  os.path.join(os.path.dirname(os.getcwd()),'sample_data')
 
 #使用结巴分词器进行分词
 comma_tokenizer = lambda x: jieba.cut(x)
-hashing_vectorizer = HashingVectorizer(tokenizer=comma_tokenizer, n_features=30000, non_negative=True)
+hashing_vectorizer = HashingVectorizer(tokenizer=comma_tokenizer, n_features=30000, alternate_sign=False)
 
 
 #返回文本和标签

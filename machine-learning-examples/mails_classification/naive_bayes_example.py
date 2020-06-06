@@ -43,10 +43,6 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
-#Python27解决中文乱码问题
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 #样本数据目录
 sample_data_dir =  os.path.join(os.path.dirname(os.getcwd()),'sample_data')
 
@@ -72,7 +68,7 @@ def input_train_data(ham_train_dir,spam_train_dir):
     for fname in spam_train_filenames:
         fpath = os.path.join(spam_train_dir,fname)
         if os.path.isfile(fpath):
-            with open(fpath, 'r') as f1:
+            with open(fpath, 'r',encoding='iso-8859-1') as f1:
                 fcontent = f1.read()
                 train_words.append(fcontent)
                 train_tags.append('spam')
@@ -101,7 +97,7 @@ def input_test_data(ham_test_dir,spam_test_dir):
     for fname in spam_test_filenames:
         fpath = os.path.join(spam_test_dir,fname)
         if os.path.isfile(fpath):
-            with open(fpath, 'r') as f1:
+            with open(fpath, 'r',encoding="iso-8859-1") as f1:
                 fcontent = f1.read()
                 test_spam_words.append(fcontent)
                 test_spam_tags.append('spam')    

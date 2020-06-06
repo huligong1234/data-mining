@@ -86,7 +86,7 @@ def main():
 	print('predict result:')
 	print(target_names[y_pred[0]])
 	pred_proba = clf.predict_proba(x_test) #预测各种疾病的概率
-	print(zip(target_names, pred_proba[0]))
+	print(list(zip(target_names, pred_proba[0])))
 
 if __name__ == "__main__" : 
     main()

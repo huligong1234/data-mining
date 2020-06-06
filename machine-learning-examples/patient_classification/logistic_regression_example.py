@@ -78,14 +78,14 @@ def main():
 	clf = train_clf(x_features,y_labels)
 
 	#打喷嚏的建筑工人 [是打喷嚏,否感冒,否护士,否农夫,是建筑工人,否教师]
-	x_test = np.array([1,0,0,0,1,0])
+	x_test = np.array([[1,0,0,0,1,0]])
 
 	y_pred =  clf.predict(x_test) #预测最有可能是哪种疾病
 
 	print('predict result:')
 	print(target_names[y_pred[0]])
 	pred_proba = clf.predict_proba(x_test) #预测各种疾病的概率
-	print(zip(target_names, pred_proba[0]))
+	print(list(zip(target_names, pred_proba[0])))
 
 if __name__ == "__main__" : 
     main()
